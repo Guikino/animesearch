@@ -133,10 +133,10 @@ export default function App() {
     <div>
       <header className="text-center mt-16">
         <h1 className="text-6xl bg-gradient-to-r mb-2 from-red-500 bg-[rgba(80,80,80,0.32)] to-blue-500 bg-clip-text
-         text-transparent inline-block">
+         text-transparent inline-block text-3xl">
           Buscanime
         </h1>
-        <p className="text-white text-xl">
+        <p className="text-white text-xl max-md:text-sm max-md:justify max-md:w-[90%] max-md:m-auto">
           Abaixo adicione uma imagem trecho de algum anime para saber qual anime é, e qual episódio está sendo exibido
         </p>
       </header>
@@ -156,7 +156,7 @@ export default function App() {
             type="button"
             onClick={handleClick}
             className="bg-gradient-to-r from-red-500 bg-[rgba(80,80,80,0.32)] to-blue-500 text-white px-4 py-1 rounded
-             flex items-center justify-center gap-2 max-md:px-2 max-md:py-1"
+             flex items-center justify-center gap-2  max-md:w-28 max-md:text-[12px]"
           >
             {imageSrc ? (
               <>
@@ -169,13 +169,13 @@ export default function App() {
           <button
             type="button"
             onClick={handleVerify}
-            className="bg-transparent border-2 border-black hover:bg-neutral-700 transition-all cursor-pointer rounded-lg py-4 px-12"
+            className="bg-transparent border-2 border-black hover:bg-neutral-700 transition-all cursor-pointer rounded-lg py-4 px-12 max-md:w-28 max-md:text-[12px] max-md:px-0"
           >
             Verificar
           </button>
         </form>
         {imageSrc ? (
-          <div className="m-auto w-96 h-64 mt-4">
+          <div className="m-auto w-96 h-64 mt-4 max-md:w-[90%]">
             <img src={imageSrc} alt="Imagem selecionada" className="w-full h-full object-cover" />
           </div>
         ) : (
@@ -190,14 +190,14 @@ export default function App() {
         
         {showResults && data && data.result && data.result.length > 0 && (
           <section className="text-white w-full">
-            <div className="flex gap-4 items-center justify-center pt-6 pb-4">
-              <p className="font-bold text-xl"> Nome do anime: <strong className="bg-gradient-to-r from-red-500 bg-[rgba(80,80,80,0.32)] to-blue-500 bg-clip-text text-transparent inline-block">
+            <div className="flex gap-4 max-md:gap-2 max-md:block max-md:text-center items-center justify-center pt-6 pb-4">
+              <p className="font-bold text-xl max-md:text-sm"> Nome do anime: <strong className="bg-gradient-to-r from-red-500 bg-[rgba(80,80,80,0.32)] to-blue-500 bg-clip-text text-transparent inline-block">
                 {extractAnimeName(data.result[0].filename)}</strong></p>
 
-              <p className="font-bold text-xl">Episódio: <strong 
+              <p className="font-bold text-xl max-md:text-sm">Episódio: <strong 
                 className="bg-gradient-to-r from-red-500 bg-[rgba(80,80,80,0.32)] to-blue-500 bg-clip-text text-transparent inline-block">
                   {data.result[0].episode}</strong></p>
-              <p className="font-bold text-xl">Similaridade: <strong
+              <p className="font-bold text-xl max-md:text-sm">Similaridade: <strong
                 className="bg-gradient-to-r from-red-500 bg-[rgba(80,80,80,0.32)] to-blue-500 bg-clip-text text-transparent inline-block">
                   {(data.result[0].similarity * 100).toFixed(2)}%</strong></p> 
             </div>
